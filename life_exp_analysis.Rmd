@@ -18,8 +18,15 @@ library(gapminder)
 data("gapminder_unfiltered")
 gapminder_unfiltered
 ```
-Calculate maximum
-```{r}\
 
+Calculate maximum
+```{r}
+library(dplyr)
+gapminder_unfiltered%>%
+  group_by(year)%>%
+  filter(max(lifeExp)==lifeExp)%>%
+  arrange(year)%>%
+  ungroup()->
+  maxdf
 ```
 # plot
